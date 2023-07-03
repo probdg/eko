@@ -1,0 +1,24 @@
+on:
+  push:
+    branches:
+      - main
+name: 🚀 Deploy production on push
+jobs:
+  web-deploy:
+    name: 🎉 Deploy-production-serv
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v3
+    
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ftp.griyapermatagroup.com
+        username:  ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        exclude: |
+          */.git
+          */.git/**
+          *.env
+          *.htaccess
