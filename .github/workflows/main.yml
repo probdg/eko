@@ -14,8 +14,7 @@ jobs:
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          server: ftp.aplikasipos.com
-          port: 21
+          server: 185.237.144.172
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           exclude: |
